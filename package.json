@@ -1,0 +1,27 @@
+{
+  "name": "db8",
+  "version": "1.0.0",
+  "description": "A handy app to settle your differences on the net.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonpber/db8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonpber/db8/issues"
+  },
+  "homepage": "https://github.com/jonpber/db8#readme",
+  "dependencies": {
+    "chai": "^4.1.1",
+    "express": "^4.15.4",
+    "mocha": "^3.5.0",
+    "mysql2": "^1.4.1",
+    "sequelize": "^4.5.0"
+  }
+}
