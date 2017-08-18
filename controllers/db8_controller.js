@@ -6,9 +6,7 @@ var body = require("body-parser")
 var router = express.Router();
 
 router.get("/", function(req, res){
-	// burger.getList(function(data){
-	// 	res.render("index", {burger: data});
-	// });
+	res.render("index", {});
 })
 
 router.post("/api/burgers", function(req, res){

@@ -1,7 +1,7 @@
 var express = require("express");
 var body = require("body-parser");
 var method = require("method-override");
-// var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars");
 var path = require("path");
 var app = express();
 var db = require("./models");
@@ -10,9 +10,9 @@ var router = require(path.join(__dirname, "controllers", "db8_controller.js"));
 
 var port = process.env.PORT || 7000;
 
-// // Set Handlebars as the default templating engine.
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
+// Set Handlebars as the default templating engine.
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 app.use(method("_method"));
 

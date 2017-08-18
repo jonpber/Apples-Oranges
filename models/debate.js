@@ -23,8 +23,7 @@ module.exports = function(sequelize, Datatypes){
 		},
 
 		chatLog: {
-			type: Datatypes.TEXT,
-			defaultValue: ""
+			type: Datatypes.TEXT
 		}
 	});
 
