@@ -14,8 +14,6 @@ router.get("/db8/:id", function(req, res){
 	db.Debate.findOne({where: {
 		id: req.params.id
 	}}).then(function(result){
-		console.log("result: "+ JSON.stringify(result));
-
 		res.render("arena", {
 			debate: result
 		});
