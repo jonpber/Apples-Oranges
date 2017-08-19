@@ -24,6 +24,11 @@ module.exports = function(sequelize, Datatypes){
 
 		chatLog: {
 			type: Datatypes.TEXT
+		},
+
+		archived: {
+			type: Datatypes.BOOLEAN,
+			defaultValue: false
 		}
 	});
 
