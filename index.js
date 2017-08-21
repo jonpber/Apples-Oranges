@@ -17,7 +17,6 @@ app.use("/", router);
 
 var port = process.env.PORT || 7000;
 
-
 io.on('connection', function(socket){
   console.log('a user connected');
   socket.on('disconnect', function(){
@@ -28,11 +27,6 @@ socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
 });
-
-
-// http.listen(3000, function(){
-//   console.log('listening on localhost:3000');
-// });
 
 db.sequelize.sync().then(function(){
 	http.listen(port, function(error){

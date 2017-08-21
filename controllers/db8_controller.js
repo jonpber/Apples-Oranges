@@ -7,7 +7,10 @@ var db = require("../models");
 var router = express.Router();
 
 router.get("/", function(req, res){
-	res.render("index", {});
+	db.Debate.findAll({}).then(function(result){
+		res.render("index", {debates: result});
+	});
+	
 })
 
 router.get("/db8/:id", function(req, res){
