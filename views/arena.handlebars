@@ -7,23 +7,24 @@
 </head>
 <body>
 
-  <nav>
+  <nav class="debateNav">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+      <!-- <h3 class="topic">Topic is:</h3> -->
+        <h4 class="debateTopic center">{{debate.debate_topic}}</h4>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="sass.html">Action!</a></li>
-        <li><a href="badges.html">Home</a></li>
+        <li><a href="main.handlebars">Home</a></li>
         <li><a href="collapsible.html">Debites?</a></li>
       </ul>
     </div>
   </nav>
 
-  <h3 class="topic">Topic is:</h3> <!--place in nav as title of page-->
-  <h4 class="debateTopic">{{debate.debate_topic}}</h4>
-
-
 <div class="container">
 <div class="row">
+
+  <div class="progress">
+        <div class="determinate" style="width: 100%"></div>
+    </div>
 
 <div class="col s4 offset-s4">
   <div class="chatDiv ">
@@ -35,7 +36,6 @@
       </form>
   </div>
 </div>
-
 
 </div> <!--row endtag-->
 </div> <!--container endtag-->
