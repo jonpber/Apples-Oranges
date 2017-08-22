@@ -3,6 +3,7 @@ var app = express();
 var path = require("path");
 var body = require("body-parser");
 var db = require("../models");
+// var socket = io.connect();
 
 var router = express.Router();
 
@@ -17,6 +18,7 @@ router.get("/db8/:id", function(req, res){
 	db.Debate.findOne({where: {
 		id: req.params.id
 	}}).then(function(result){
+		// socket.emit('room', req.params.id);
 		res.render("arena", {
 			debate: result
 		});

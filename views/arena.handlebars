@@ -10,7 +10,7 @@
   <nav class="debateNav">
     <div class="nav-wrapper">
       <!-- <h3 class="topic">Topic is:</h3> -->
-        <h4 class="debateTopic center">{{debate.debate_topic}}</h4>
+        <p class="debateTopic center">{{debate.debate_topic}}</p>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="sass.html">Action!</a></li>
         <li><a href="main.handlebars">Home</a></li>
@@ -22,9 +22,8 @@
 <div class="container">
 <div class="row">
 
-  <div class="progress">
-        <div class="determinate" style="width: 100%"></div>
-    </div>
+<br>
+<br>
 
 <div class="col s4 offset-s4">
   <div class="chatDiv ">
@@ -37,9 +36,23 @@
   </div>
 </div>
 
+<div class="progress">
+  <div class="determinate" style="width: 50%"></div>
+</div>
+
+<div class="sides">
+  <p class="sideAText">{{debate.sideA}}</p>
+  <p class="sideBText">{{debate.sideB}}</p>
+</div>
+
 </div> <!--row endtag-->
 </div> <!--container endtag-->
 
+<div id="modal{{debate.id}}" class="modal">
+  <h2>Who Won?</h2>
+  <button class="sideAText">{{debate.sideA}}</button>
+  <button class="sideBText">{{debate.sideB}}</button>
+</div>
 
 </body>
 </html>
