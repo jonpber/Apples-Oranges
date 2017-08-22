@@ -30,6 +30,7 @@ router.get("/api/debates", function(req, res){
 });
 
 router.post("/api/debates", function(req, res){
+	console.log(req.body);
 	db.Debate.create({
 		debate_topic: req.body.topic,
 		sideA: req.body.sideA,
@@ -38,7 +39,7 @@ router.post("/api/debates", function(req, res){
 		createdAt: Date.now(),
 		updatedAt: Date.now()
 	}).then(function(result){
-		res.json(result);
+		res.redirect("/");
 	});
 	
 });
