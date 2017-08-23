@@ -9,7 +9,7 @@ $(function () {
 		$('#messages').append($('<li>').text(msg));
 	});
 
-	$("#modal").iziModal({
+	$(".modal").iziModal({
 		transitionIn: 'comingIn',
 		transitionOut: 'comingOut',
 	});
