@@ -12,7 +12,6 @@ $(function () {
 
 	socket.on('chat message', function(msg){
 		$('#messages' + msg.id).append($('<li>').text(msg.message));
-		$("#bar1").attr("style", "width: 15%");
 	});
 
 	socket.on("response", function(debateBar){

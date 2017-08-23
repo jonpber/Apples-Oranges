@@ -39,7 +39,7 @@ io.on('connection', function(socket){
 
 	socket.on('vote', function(id) {
 		changeVal(id.id, id.value, function(val){
-				socket.emit("response", {id: id.id,
+				io.emit("response", {id: id.id,
 					val: val});
 		});
 	});
