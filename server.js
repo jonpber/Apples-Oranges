@@ -7,6 +7,8 @@ var io = require('socket.io')(http);
 var path = require("path");
 var exphbs = require("express-handlebars");
 var db = require("./models");
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var router = require(path.join(__dirname, "controllers", "db8_controller.js"));
 
@@ -25,14 +27,19 @@ app.use(express.static(path.join('public')));
 app.use("/", router);
 
 io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  })
+	console.log('a user connected');
+	socket.on('disconnect', function(){
+		console.log('user disconnected');
+	})
 
-socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
+	socket.on('chat message', function(msg){
+		io.emit('chat message', msg);
+	});
+
+	socket.on('room', function(room) {
+		socket.room = room;
+		socket.join(socket.room);
+	});
 });
 
 db.sequelize.sync().then(function(){

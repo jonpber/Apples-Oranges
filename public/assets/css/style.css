@@ -37,6 +37,7 @@ li {
 
 .debateTopic {
 	font-size: 24px;	
+    display: inline;
 }
 
 .chatDiv {
@@ -58,6 +59,7 @@ li {
 	margin: auto 0;
 	border-radius: 20px;
 	padding: 10px;
+	box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
 }
 
 #messages {
@@ -76,5 +78,18 @@ li {
 #messages li:nth-child(odd) {
 	background: green;
 	border-radius: 10px;
+}
 
+.progress {
+	border-radius: 25px;
+	height: 35px;
+	box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+.sideAText {
+	float: left;
+}
+
+.sideBText {
+	float: right;
 }
