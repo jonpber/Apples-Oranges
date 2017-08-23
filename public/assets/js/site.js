@@ -1,5 +1,24 @@
 $(function () {
 	var socket = io();
+	var voted;
+	if (localStorage.getItem("votes")){
+		voted = JSON.parse(localStorage.getItem("votes"));
+	}
+
+	else {
+		voted = {};
+		localStorage.setItem("votes", JSON.stringify(voted));
+	}
+
+	function closeVote(){
+		$("#vote" + $(".pageInfo").attr("data-id")).html("<h2>Thanks for voting!</h2>");
+	}
+
+	if ($(".pageInfo").attr("data-id") !== null && voted[$(".pageInfo").attr("data-id")] === true){
+		closeVote();
+	}
+
+	
 	
 	$('#debateChat').submit(function(){
 		socket.emit('chat message', {
@@ -30,6 +49,10 @@ $(function () {
 
 	$("body").on("click", ".arenaVote", function(event){
 		event.preventDefault();
+		voted[$(this).attr("data-id")] = true;
+		console.log(JSON.stringify(voted));
+		localStorage.setItem("votes", JSON.stringify(voted));
+		closeVote();
 		var val = 0;
 		if ($(this).attr("data-letter") === "a"){
 			val = -1;
