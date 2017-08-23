@@ -10,7 +10,9 @@ var db = require("./models");
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-var router = require(path.join(__dirname, "controllers", "db8_controller.js"));
+var router = require(path.join(__dirname, "controllers", "db8_controller.js")).router;
+var decreaseVal = require(path.join(__dirname, "controllers", "db8_controller.js")).decreaseVal;
+var increaseVal = require(path.join(__dirname, "controllers", "db8_controller.js")).increaseVal;
 
 var port = process.env.PORT || 7000;
 
@@ -27,7 +29,6 @@ app.use(express.static(path.join('public')));
 app.use("/", router);
 
 io.on('connection', function(socket){
-	console.log('a user connected');
 	socket.on('disconnect', function(){
 		console.log('user disconnected');
 	})
@@ -36,9 +37,22 @@ io.on('connection', function(socket){
 		io.emit('chat message', msg);
 	});
 
-	socket.on('room', function(room) {
-		socket.room = room;
-		socket.join(socket.room);
+	socket.on('vote', function(id) {
+		if (id.val === -1){
+			decreaseVal(id.id, function(val){
+				socket.emit("response", {id: id.id,
+					val: val});
+			})
+		}
+
+		else {
+			increaseVal(id.id, function(val){
+				socket.emit("response", {id: id.id,
+					val: val});
+			})
+		}
+		
+		
 	});
 });
 
