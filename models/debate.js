@@ -10,7 +10,7 @@ module.exports = function(sequelize, Datatypes){
 		},
 		votesA: {
 			type: Datatypes.INTEGER,
-			defaultValue: 0
+			defaultValue: 50
 		},
 
 		sideB: {
@@ -19,7 +19,7 @@ module.exports = function(sequelize, Datatypes){
 		},
 		votesB: {
 			type: Datatypes.INTEGER,
-			defaultValue: 0
+			defaultValue: 50
 		},
 
 		chatLog: {

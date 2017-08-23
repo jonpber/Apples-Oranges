@@ -20,46 +20,59 @@
   </nav>
 
 <div class="container">
-<div class="row">
+  <div class="row">
 
-<br>
-<br>
-
-<div class="col s4 offset-s4">
-  <div class="chatDiv ">
-    <div id="messageDiv">
-      <ul id="messages"></ul>
+    <br>
+    <br>
+    <div class="col s6 center">
+      <div class="chatDiv ">
+        <div id="messageDiv">
+          <ul id="messages"></ul>
+        </div>
+          <form id="debateChat" action="">
+            <input id="m" autocomplete="off" /><button>Send</button>
+          </form>
+      </div>
     </div>
-      <form id="debateChat" action="">
-        <input id="m" autocomplete="off" /><button>Send</button>
+
+    <div class="col s12 center">
+      <h3>Votes</h3>
+    </div>
+
+    <div class="col s12 center">
+      <div class="progress">
+        <div class="determinate" id="bar{{debate.id}}" style="width: {{debate.votesA}}%"></div>
+      </div>
+    </div>
+
+    <div class="col s12 center">
+      <div class="sides">
+        <p class="sideAText">{{debate.sideA}}</p>
+        <p class="sideBText">{{debate.sideB}}</p>
+      </div>
+    </div>
+    
+    <div class="col s12 center">
+      <h3>Which is better??</h3>
+      <form action="/api/debates/{{debate.id}}/a?_method=PUT" method="POST">
+        <button type="submit" class="sideAText arenaVote" data-letter="a" data-id="{{debate.id}}">{{debate.sideA}}</button>
       </form>
+
+      <form action="/api/debates/{{debate.id}}/b?_method=PUT" method="POST">
+        <button type="submit" class="sideBText arenaVote" data-letter="b" data-id="{{debate.id}}">{{debate.sideB}}</button>
+      </form>
+        
+      
+    </div>
+
+    
+    </div> <!--row endtag-->
+    </div> <!--container endtag-->
+
+    <div id="modal{{debate.id}}" class="modal">
+
+    </div>
   </div>
 </div>
-
-<div class="col s12 center">
-  <h2>Votes</h2>
-</div>
-
-<div class="col s12 center">
-  <div class="progress">
-    <div class="determinate" style="width: 50%"></div>
-  </div>
-</div>
-
-
-<div class="sides">
-  <p class="sideAText">{{debate.sideA}}</p>
-  <p class="sideBText">{{debate.sideB}}</p>
-</div>
-
-</div> <!--row endtag-->
-</div> <!--container endtag-->
-
-<div id="modal{{debate.id}}" class="modal">
-  <h2>Who Won?</h2>
-  <button class="sideAText">{{debate.sideA}}</button>
-  <button class="sideBText">{{debate.sideB}}</button>
-</div>
-
 </body>
 </html>

@@ -3,7 +3,8 @@ var app = express();
 var path = require("path");
 var body = require("body-parser");
 var db = require("../models");
-// var socket = io.connect();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var router = express.Router();
 
@@ -32,7 +33,6 @@ router.get("/api/debates", function(req, res){
 });
 
 router.post("/api/debates", function(req, res){
-	console.log(req.body);
 	db.Debate.create({
 		debate_topic: req.body.topic,
 		sideA: req.body.sideA,
@@ -43,11 +43,78 @@ router.post("/api/debates", function(req, res){
 	}).then(function(result){
 		res.redirect("/");
 	});
+});
+
+router.put("/api/debates/:id/:side", function(req, res){
+	var sum = 0;
+	if (req.params.side === "a"){
+		sum = -1;
+	}
+
+	else {
+		sum = 1;
+	}
+	db.Debate.findOne({where:
+		{
+		id: req.params.id
+	}
+	}).then(function(result){
+		db.Debate.update({
+			votesA: result.votesA + sum
+		}, {where: {
+			id: result.id
+		}
+		}).then(function(result1){
+		});
+	})
 	
 });
 
-router.put("/api/burgers/:id?", function(req, res){
+module.exports = {
+	router: router,
+	getVal: function(id, callback){
+		db.Debate.findOne({where:
+		{
+		id: id
+	}
+	}).then(function(result){
+		callback(result.votesA);
+	})
+},
 
-});
+	decreaseVal: function(id, callback){
+		db.Debate.findOne({where:
+			{
+			id: id
+		}
+		}).then(function(result){
+			callback(result.votesA -1);
+			db.Debate.update({
+				votesA: result.votesA -1
+			}, {where: {
+				id: result.id
+			}
+			}).then(function(result1){
+			});
+		})
+	},
 
-module.exports = router;
+	increaseVal: function(id, callback){
+		db.Debate.findOne({where:
+			{
+			id: id
+		}
+		}).then(function(result){
+			callback(result.votesA +1);
+			db.Debate.update({
+				votesA: result.votesA +1
+			}, {where: {
+				id: result.id
+			}
+			}).then(function(result1){
+			});
+		})
+	}
+	
+}
+
