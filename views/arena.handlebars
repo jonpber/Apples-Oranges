@@ -27,9 +27,9 @@
     <div class="col s6 center">
       <div class="chatDiv ">
         <div id="messageDiv">
-          <ul id="messages"></ul>
+          <ul id="messages{{debate.id}}"></ul>
         </div>
-          <form id="debateChat" action="">
+          <form id="debateChat" action="" data-id="{{debate.id}}">
             <input id="m" autocomplete="off" /><button>Send</button>
           </form>
       </div>

@@ -67,7 +67,6 @@ router.put("/api/debates/:id/:side", function(req, res){
 		}).then(function(result1){
 		});
 	})
-	
 });
 
 module.exports = {
@@ -76,45 +75,28 @@ module.exports = {
 		db.Debate.findOne({where:
 		{
 		id: id
-	}
-	}).then(function(result){
-		callback(result.votesA);
-	})
-},
-
-	decreaseVal: function(id, callback){
-		db.Debate.findOne({where:
-			{
-			id: id
 		}
 		}).then(function(result){
-			callback(result.votesA -1);
-			db.Debate.update({
-				votesA: result.votesA -1
-			}, {where: {
-				id: result.id
-			}
-			}).then(function(result1){
-			});
+			callback(result.votesA);
 		})
 	},
 
-	increaseVal: function(id, callback){
+	changeVal: function(id, sum, callback){
 		db.Debate.findOne({where:
 			{
 			id: id
 		}
 		}).then(function(result){
-			callback(result.votesA +1);
-			db.Debate.update({
-				votesA: result.votesA +1
-			}, {where: {
-				id: result.id
-			}
-			}).then(function(result1){
+				callback(result.votesA + sum);
+				db.Debate.update({
+					votesA: result.votesA + sum
+				}, {where: {
+					id: id
+				}
+				}).then(function(result1){
+				});
 			});
-		})
-	}
 	
+	}
 }
 

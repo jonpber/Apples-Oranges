@@ -1,14 +1,23 @@
 $(function () {
 	var socket = io();
 	
-	// $('form').submit(function(){
-	// 	socket.emit('chat message', $('#m').val());
-	// 	$('#m').val('');
-	// 	return false;
-	// });
-	// socket.on('chat message', function(msg){
-	// 	$('#messages').append($('<li>').text(msg));
-	// });
+	$('#debateChat').submit(function(){
+		socket.emit('chat message', {
+			message: $('#m').val(),
+			id: $(this).attr("data-id")
+	});
+		$('#m').val('');
+		return false;
+	});
+
+	socket.on('chat message', function(msg){
+		$('#messages' + msg.id).append($('<li>').text(msg.message));
+		$("#bar1").attr("style", "width: 15%");
+	});
+
+	socket.on("response", function(debateBar){
+		$("#bar" + debateBar.id).attr("style", "width: " + debateBar.val + "%");
+	});
 
 	$(".modal").iziModal({
 		transitionIn: 'comingIn',
@@ -21,24 +30,21 @@ $(function () {
 	});
 
 	$("body").on("click", ".arenaVote", function(event){
-		console.log("click");
-		// event.preventDefault();
+		event.preventDefault();
 		var val = 0;
-		// if ($(this).attr("data-letter") === "a"){
-		// 	val = -1;
-		// }
+		if ($(this).attr("data-letter") === "a"){
+			val = -1;
+		}
 
-		// else {
-		// 	val = 1;
-		// }
+		else {
+			val = 1;
+		}
 		socket.emit("vote", {
 			id: $(this).attr("data-id"),
 			value: val
 		})
 	})
 
-	socket.on("response", function(debateBar){
-		$("#bar" + debateBar.id).attr("style", "width: " + debateBar.val + "%");
-	})
+
 
 });

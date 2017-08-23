@@ -11,8 +11,8 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var router = require(path.join(__dirname, "controllers", "db8_controller.js")).router;
-var decreaseVal = require(path.join(__dirname, "controllers", "db8_controller.js")).decreaseVal;
-var increaseVal = require(path.join(__dirname, "controllers", "db8_controller.js")).increaseVal;
+var changeVal = require(path.join(__dirname, "controllers", "db8_controller.js")).changeVal;
+// var increaseVal = require(path.join(__dirname, "controllers", "db8_controller.js")).increaseVal;
 
 var port = process.env.PORT || 7000;
 
@@ -38,22 +38,15 @@ io.on('connection', function(socket){
 	});
 
 	socket.on('vote', function(id) {
-		if (id.val === -1){
-			decreaseVal(id.id, function(val){
+		changeVal(id.id, id.value, function(val){
 				socket.emit("response", {id: id.id,
 					val: val});
-			})
-		}
-
-		else {
-			increaseVal(id.id, function(val){
-				socket.emit("response", {id: id.id,
-					val: val});
-			})
-		}
-		
-		
+		});
 	});
+
+	socket.on("debate Update", function(){
+		console.log("debate should update")
+	})
 });
 
 db.sequelize.sync().then(function(){
