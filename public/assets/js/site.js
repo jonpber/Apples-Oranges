@@ -18,8 +18,6 @@ $(function () {
 		closeVote();
 	}
 
-	
-	
 	$('#debateChat').submit(function(){
 		socket.emit('chat message', {
 			message: $('#m').val(),
@@ -43,6 +41,11 @@ $(function () {
 	});
 
 	$("body").on('click', '.createDebate', function (event) {
+		event.preventDefault();
+		$('#modal').iziModal('open');
+	});
+
+	$("body").on('click', '.createDebateNav', function (event) {
 		event.preventDefault();
 		$('#modal').iziModal('open');
 	});
