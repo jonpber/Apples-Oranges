@@ -13,6 +13,11 @@ body {
 	font: 13px Helvetica, Arial;
 }
 
+.centerObj {
+	padding: 10px 0px 40px;
+	margin: auto;
+}
+
 .createDebate {
 	background: white;
 	border: none;
@@ -81,6 +86,10 @@ li {
 	/*margin-left: 400px;*/
 }
 
+.chatInput {
+	width: 100%;
+}
+
 #debateChat {
 	width: 50%;*/
 }
@@ -123,8 +132,21 @@ hr {
 	box-shadow: 3px 3px 7px black;
 }
 
+input:not([type]) {
+	background-color: white;
+}
+
+input[type=range]+.thumb {
+	background-color: #F44336;
+}
+
+input[type=range]+.thumb .value {
+	color: #F44336;
+}
+
 #m {
  height: 30px;
+ width: 400px;
 }
 
 #messageDiv {
