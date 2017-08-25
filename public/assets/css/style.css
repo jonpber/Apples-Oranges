@@ -169,6 +169,7 @@ input[type=range]+.thumb .value {
 	color: #F44336;
 }
 
+
 #m {
  height: 30px;
  border-radius: 15px;
@@ -227,6 +228,11 @@ p {
 	background-color: #ec4d38;
 }
 
+.rightBtnForm {
+	text-align: right;
+	width: 100%;
+}
+
 .userSquare {
 	border: 1px solid black;
 	width: 250px;
@@ -242,6 +248,38 @@ p {
 .sideBText {
 	float: right;
 	color: #ec4d38;
+}
+
+.sideAVote {
+	color: black;
+	background: orange;
+	border: 0;
+	border-radius: 24px;
+	font-size: 25px;
+	width: auto;
+	/* padding: 10px; */
+	box-shadow: 1px -1px 9px black;
+	font-family: 'Oswald', sans-serif;
+}
+
+.sideAVote:active, .sideAVote:focus{
+	background: #bd7b00;
+}
+
+.sideBVote {
+	color: black;
+	background: #ec4d38;
+	border: 0;
+	border-radius: 24px;
+	font-size: 25px;
+	width: auto;
+	/* padding: 10px; */
+	box-shadow: 1px -1px 9px black;
+	font-family: 'Oswald', sans-serif;
+}
+
+.sideBVote:active, .sideBVote:focus{
+	background: #c83420;
 }
 
 .taglineDiv {

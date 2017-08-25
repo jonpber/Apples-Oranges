@@ -56,16 +56,15 @@ $(function () {
 	$("body").on("click", ".arenaVote", function(event){
 		event.preventDefault();
 		voted[$(this).attr("data-id")] = true;
-		console.log(JSON.stringify(voted));
 		localStorage.setItem("votes", JSON.stringify(voted));
 		closeVote();
 		var val = 0;
 		if ($(this).attr("data-letter") === "a"){
-			val = -1;
+			val = 1;
 		}
 
 		else {
-			val = 1;
+			val = -1;
 		}
 		socket.emit("vote", {
 			id: $(this).attr("data-id"),

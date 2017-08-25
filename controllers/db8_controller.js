@@ -9,8 +9,16 @@ var io = require('socket.io')(http);
 var router = express.Router();
 
 router.get("/", function(req, res){
-	db.Debate.findAll({}).then(function(result){
+	db.Debate.findAll({order: [["totalVotes", "DESC"]]}).then(function(result){
 		res.render("index", {debates: result});
+	});	
+})
+
+router.get("/archive", function(req, res){
+	db.Debate.findAll({order: [
+		["debate_topic", 'ASC']
+		]}).then(function(result){
+		res.render("archive", {debates: result});
 	});
 	
 })
@@ -92,9 +100,16 @@ module.exports = {
 					votesA: result.votesA + sum,
 					totalVotes: result.totalVotes + 1
 				}
+				if (result.totalVotes + 1 >= result.maxVotes){
+					updateDebate.archived = true;
+				}
 
-				if (result.totalVotes >= result.maxVotes){
-					console.log("debate is over")
+				if (result.votesA > (result.maxVotes / 2)){
+					updateDebate.winner = result.sideA;
+				}
+
+				else {
+					updateDebate.winner = result.sideB;
 				}
 
 				callback({val: result.votesA + sum,
