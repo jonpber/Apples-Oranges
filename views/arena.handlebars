@@ -12,8 +12,9 @@
 		<!-- <h3 class="topic">Topic is:</h3> -->
 		<a href="/"><p class="debateTopic center"><span class="applesLogo">Apples</span> & <span class="orangesLogo">Oranges</span></p></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="/">Home</a></li>
-			<li><a href="" class="createDebateNav">Create a Debate</a></li>
+			<li class="grow"><a href="/">Home</a></li>
+			<li class="grow"><a href="" class="createDebateNav">Create a Debate</a></li>
+			<li class="grow"><a href="/archive">Archive</a></li>
 		</ul>
 	</div>
 </nav>
@@ -47,19 +48,24 @@
 			{{#unless debate.archived}}
 				<div class="col s12 center" id="vote{{debate.id}}">
 					<h3>Which is better??</h3>
-					<form action="/api/debates/{{debate.id}}/a?_method=PUT" method="POST">
-						<button type="submit" class="sideAText arenaVote" data-letter="a" data-id="{{debate.id}}">{{debate.sideA}}</button>
-					</form>
+					<div class="col s6">
+						<form action="/api/debates/{{debate.id}}/a?_method=PUT" method="POST" class="leftBtnForm">
+							<button type="submit" class="sideAText arenaVote sideAVote grow" data-letter="a" data-id="{{debate.id}}">{{debate.sideA}}</button>
+						</form>
+					</div>
 
-					<form action="/api/debates/{{debate.id}}/b?_method=PUT" method="POST">
-						<button type="submit" class="sideBText arenaVote" data-letter="b" data-id="{{debate.id}}">{{debate.sideB}}</button>
-					</form>
+					<div class="col s6">
+						<form action="/api/debates/{{debate.id}}/b?_method=PUT" method="POST" class="rightBtnForm">
+							<button type="submit" class="arenaVote sideBVote grow" data-letter="b" data-id="{{debate.id}}">{{debate.sideB}}</button>
+						</form>
+					</div>
+					
 				</div>
 			{{/unless}}
 
 			{{#if debate.archived}}
-				<div class="col s12 center" id="vote{{debate.id}}">
-					<h3>{{debate.winner}} Wins!</h3>
+				<div class="col s12 center">
+					<h2>{{debate.winner}} Wins!</h2>
 				</div>
 			{{/if}}
 			<br>

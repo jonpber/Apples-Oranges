@@ -10,25 +10,22 @@
 	</div>
 </nav>
 
+
+<h2>The Archive</h2>
+
 <div class="taglineDiv">
-	<h3>The place to settle your differences.</h3> 
-	<h3>Once and for all.</h3>
+	<h3>Home of finished debates.</h3> 
 </div>
 
-
-<hr>
-
-<h2>Ongoing Debates</h2>
-
 {{#each debates}}
-	{{#unless this.archived}}
+	{{#if this.archived}}
 		<div class="indexDebate grow">
 			<a href="/db8/{{this.id}}">
 				<h4>{{this.debate_topic}}</h4>
-				<h5 id="totalVotes{{this.id}}">Total Votes: {{this.totalVotes}}<h5>
+				<h5>Winner: {{this.winner}}<h5>
 			</a>
 		</div>
-	{{/unless}}
+	{{/if}}
 {{/each}}
 
 <br>
@@ -39,7 +36,6 @@
 <div class="createDebateDiv center">
 	<button type="submit" class="createDebate grow">Create A Debate</button>
 </div>
-
 
 
 <div id="modal" class="modal">
