@@ -1,9 +1,15 @@
-
 <nav class="debateNav">
 	<div class="nav-wrapper">
 		<!-- <h3 class="topic">Topic is:</h3> -->
 		<a href="/"><p class="debateTopic center"><span class="applesLogo">Apples</span> & <span class="orangesLogo">Oranges</span></p></a>
+		<a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li class="grow"><a href="/">Home</a></li>
+			<li class="grow"><a href="" class="createDebateNav">Create a Debate</a></li>
+			<li class="grow"><a href="/archive">Archive</a></li>
+		</ul>
+
+		<ul class="side-nav" id="mobile-demo">
 			<li class="grow"><a href="/">Home</a></li>
 			<li class="grow"><a href="" class="createDebateNav">Create a Debate</a></li>
 			<li class="grow"><a href="/archive">Archive</a></li>
@@ -38,15 +44,15 @@
 			</div>
 
 			{{#unless debate.archived}}
-				<div class="col s12 center" id="vote{{debate.id}}">
+				<div class="col s12 center voteSpace" id="vote{{debate.id}}">
 					<h3>Which is better??</h3>
-					<div class="col s6">
+					<div class="col s12 l6">
 						<form action="/api/debates/{{debate.id}}/a?_method=PUT" method="POST" class="leftBtnForm">
 							<button type="submit" class="sideAText arenaVote sideAVote grow" data-letter="a" data-id="{{debate.id}}">{{debate.sideA}}</button>
 						</form>
 					</div>
 
-					<div class="col s6">
+					<div class="col s12 l6">
 						<form action="/api/debates/{{debate.id}}/b?_method=PUT" method="POST" class="rightBtnForm">
 							<button type="submit" class="arenaVote sideBVote grow" data-letter="b" data-id="{{debate.id}}">{{debate.sideB}}</button>
 						</form>
@@ -64,7 +70,7 @@
 			<br>
 			<br>
 
-			<div class="col s6 offset-s3">
+			<div class="col s12 m6 offset-m3">
 				<div class="chatDiv">
 					<div id="messageDiv">
 						<ul id="messages{{debate.id}}"></ul>

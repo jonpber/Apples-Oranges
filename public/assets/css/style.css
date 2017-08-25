@@ -1,3 +1,10 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing:
+	border-box;
+}
+
 a {
 	color: #F44336;
 }
@@ -8,10 +15,19 @@ a {
 	color: #F44336;
 }
 
+.arenaVote {
+	width: 300px;
+	font-size: 35px;
+	padding: 20px 0;
+}
+
 body {
-/*	background: url("../images/footer_lodyas.png");*/
 	background: url("../images/zzw1.png");
 	font: 13px Helvetica, Arial;
+}
+
+.brand-logo {
+	margin-left: 20px;
 }
 
 .centerObj {
@@ -67,45 +83,10 @@ body {
 	padding: 8px 0 14px;
 }
 
-.grow {
-	transition: all .15s ease-in-out;
-}
-.grow:hover {
-	transform: scale(1.05);
-}
-
-form {
-	padding: 3px;
-}
-
-form button {
-	width: 60px;
-	background: rgb(130, 224, 255);
-	border: none;
-	margin-left: 10px;
-	padding: 10px;
-	margin: 5px;
-}
-
-li {
-	text-align: center;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing:
-	border-box;
-}
 
 .debateNav{
 	background-color: black;
 	padding: 0 40px;
-}
-
-
-.brand-logo {
-	margin-left: 20px;
 }
 
 .debateTopic {
@@ -128,9 +109,27 @@ li {
 	flex-direction: row;
 }
 
-.progress .determinate {
-	background-color: #ffa500;
+
+form {
+	padding: 3px;
 }
+
+form button {
+	width: 60px;
+	background: rgb(130, 224, 255);
+	border: none;
+	margin-left: 10px;
+	padding: 10px;
+	margin: 5px;
+}
+
+.grow {
+	transition: all .15s ease-in-out;
+}
+.grow:hover {
+	transform: scale(1.05);
+}
+
 
 h1, h2, h3 {
 	color: white;
@@ -195,6 +194,16 @@ input[type=range]::-ms-thumb {
 	background-color: #F44336;
 }
 
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid orange;
+	box-shadow: 0 1px 0 0 #000;
+}
+
+
+li {
+	text-align: center;
+}
+
 #m {
 	height: 30px;
 	border-radius: 15px;
@@ -254,6 +263,10 @@ p {
 	background-color: #ec4d38;
 }
 
+.progress .determinate {
+	background-color: #ffa500;
+}
+
 .rightBtnForm {
 	text-align: right;
 	width: 100%;
@@ -281,9 +294,6 @@ p {
 	background: orange;
 	border: 0;
 	border-radius: 24px;
-	font-size: 25px;
-	width: auto;
-	/* padding: 10px; */
 	box-shadow: 1px -1px 9px black;
 	font-family: 'Oswald', sans-serif;
 }
@@ -297,9 +307,6 @@ p {
 	background: #ec4d38;
 	border: 0;
 	border-radius: 24px;
-	font-size: 25px;
-	width: auto;
-	/* padding: 10px; */
 	box-shadow: 1px -1px 9px black;
 	font-family: 'Oswald', sans-serif;
 }
@@ -313,3 +320,38 @@ p {
     text-align: center;
 }
 
+.voteSpace {
+	display: none;
+}
+
+@media screen and (max-width: 992px){
+	.arenaVote {
+		float: none;
+	}
+
+	.rightBtnForm {
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 850px){
+	img {
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 750px){
+	.indexDebate {
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 374px){
+	.arenaVote {
+    	width: 250px;
+    }
+
+	.debateNav {
+		padding: 0 10px;
+	}
+}

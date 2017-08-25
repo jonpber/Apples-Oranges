@@ -12,12 +12,18 @@ $(function () {
 	}
 
 	function closeVote(){
-		$("#vote" + $(".pageInfo").attr("data-id")).html("<h2>Thanks for voting!</h2>");
+		$("#vote" + $(".pageInfo").attr("data-id")).html("<h2>Thanks for voting!</h2>").show();
 	}
 
 	if ($(".pageInfo").attr("data-id") !== null && voted[$(".pageInfo").attr("data-id")] === true){
 		closeVote();
 	}
+
+	else {
+		$("#vote" + $(".pageInfo").attr("data-id")).show()
+	}
+
+	$(".button-collapse").sideNav();
 
 	$('#debateChat').submit(function(){
 		socket.emit('chat message', {
