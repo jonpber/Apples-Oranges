@@ -38,6 +38,7 @@ router.post("/api/debates", function(req, res){
 		sideA: req.body.sideA,
 		sideB: req.body.sideB,
 		chatLog: "",
+		maxVotes: req.body.maxVotes,
 		createdAt: Date.now(),
 		updatedAt: Date.now()
 	}).then(function(result){
@@ -87,10 +88,19 @@ module.exports = {
 			id: id
 		}
 		}).then(function(result){
-				callback(result.votesA + sum);
-				db.Debate.update({
-					votesA: result.votesA + sum
-				}, {where: {
+				var updateDebate = {
+					votesA: result.votesA + sum,
+					totalVotes: result.totalVotes + 1
+				}
+
+				if (result.totalVotes >= result.maxVotes){
+					console.log("debate is over")
+				}
+
+				callback({val: result.votesA + sum,
+					totalVotes: result.totalVotes +1}
+					);
+				db.Debate.update(updateDebate, {where: {
 					id: id
 				}
 				}).then(function(result1){

@@ -17,9 +17,14 @@ module.exports = function(sequelize, Datatypes){
 			type: Datatypes.STRING,
 			defaultValue: ""
 		},
-		votesB: {
+		maxVotes: {
 			type: Datatypes.INTEGER,
-			defaultValue: 50
+			defaultValue: 11
+		},
+
+		totalVotes: {
+			type: Datatypes.INTEGER,
+			defaultValue: 0
 		},
 
 		chatLog: {
@@ -29,6 +34,11 @@ module.exports = function(sequelize, Datatypes){
 		archived: {
 			type: Datatypes.BOOLEAN,
 			defaultValue: false
+		},
+
+		winner: {
+			type: Datatypes.STRING,
+			defaultValue: ""
 		}
 	});
 

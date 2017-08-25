@@ -1,20 +1,79 @@
+a {
+	color: #F44336;
+}
+
+.applesLogo {
+	font-family: 'Baloo Bhaijaan', cursive;
+	font-size: 35px;
+	color: #F44336;
+}
+
 body {
-	background: grey;
+	background: #212121;
 	font: 13px Helvetica, Arial;
+}
+
+.centerObj {
+	padding: 10px 0px 40px;
+	margin: auto;
+}
+
+.chatDiv {
+	margin-top: 30px;
+}
+
+.chatInput {
+	width: 100%;
+}
+
+.chatMessage {
+	background: orange;
+	padding: 10px;
+	border-radius: 20px;
+	margin: 10px;
+}
+
+.chatMessage:nth-child(odd){
+	background: #ec4d38;
+}
+
+.createDebate {
+	background: white;
+	border: none;
+	padding: 10px;
+	border-radius: 9px;
+	color: #f44336;
+	font-size: 25px;
+	font-family: 'Oswald', sans-serif;
+	box-shadow: 3px 3px 7px black;
+	margin-top: 25px;
+}
+
+.createH2 {
+	background: #373737;
+	padding: 8px 0 14px;
+}
+
+.grow { 
+	transition: all .15s ease-in-out; 
+}
+.grow:hover { 
+	transform: scale(1.05); 
 }
 
 form {
 	padding: 3px;
-	width: 80%; }
+	width: 80%; 
+}
 
-	form button {
-		width: 60px;
-		background: rgb(130, 224, 255);
-		border: none;
-		margin-left: 10px;
-		padding: 10px;
-		margin: 5px;
-	}
+form button {
+	width: 60px;
+	background: rgb(130, 224, 255);
+	border: none;
+	margin-left: 10px;
+	padding: 10px;
+	margin: 5px;
+}
 
 li {
 	text-align: center;
@@ -29,7 +88,9 @@ li {
 
 .debateNav{
 	background-color: black;
+	padding: 0 40px;
 }
+
 
 .brand-logo {
 	margin-left: 20px;
@@ -40,25 +101,87 @@ li {
     display: inline;
 }
 
-.chatDiv {
-	/*margin-left: 400px;*/
+.debateSubmit {
+	background: #373737;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.47);
 }
+
 
 #debateChat {
 	width: 50%;*/
 }
 
+.progress .determinate {
+	background-color: #ffa500;
+}
+
+h1, h2, h3 {
+	color: white;
+}
+
+h1, h2, h3, h4 {
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+}
+
+h3 {
+	font-size: 25px;
+}
+
+h4 {
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+}
+
+h5 {
+	font-size: 18px;
+    text-align: center;
+}
+
+hr {
+	width: 50%;
+	margin: auto;
+}
+
+.indexDebate {
+	background: white;
+	width: 700px;
+	border-radius: 25px;
+	padding: 5px;
+	margin: 10px auto;
+	box-shadow: 3px 3px 7px black;
+}
+
+input:not([type]) {
+	background-color: white;
+}
+
+input[type=range]+.thumb {
+	background-color: #F44336;
+}
+
+input[type=range]+.thumb .value {
+	color: #F44336;
+}
+
 #m {
  height: 30px;
+ width: 400px;
 }
 
 #messageDiv {
-	background-color: lightblue;
+	background-color: white;
 	height: 450px;
 	margin: auto 0;
 	border-radius: 20px;
 	padding: 10px;
 	box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+	overflow: auto;
 }
 
 #messages {
@@ -79,10 +202,27 @@ li {
 	border-radius: 10px;
 }
 
+nav ul a {
+	font-family: 'Oswald', sans-serif;
+	font-size: 22px;
+}
+
+.orangesLogo {
+	font-family: 'Oswald', sans-serif;
+	color: orange;
+	font-size: 30px;
+}
+
+p {
+	font-family: 'Oswald', sans-serif;
+	font-size: 25px;
+}
+
 .progress {
 	border-radius: 25px;
 	height: 35px;
 	box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
+	background-color: #ec4d38;
 }
 
 .userSquare {
@@ -94,8 +234,14 @@ li {
 
 .sideAText {
 	float: left;
+	color: orange;
 }
 
 .sideBText {
 	float: right;
+	color: #ec4d38;
+}
+
+.taglineDiv {
+	padding: 30px;
 }

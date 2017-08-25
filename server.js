@@ -38,9 +38,10 @@ io.on('connection', function(socket){
 	});
 
 	socket.on('vote', function(id) {
-		changeVal(id.id, id.value, function(val){
+		changeVal(id.id, id.value, function(response){
 				io.emit("response", {id: id.id,
-					val: val});
+					val: response.val,
+					totalVotes: response.totalVotes});
 		});
 	});
 
