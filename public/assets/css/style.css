@@ -16,7 +16,16 @@ body {
 .centerObj {
 	padding: 10px 0px 40px;
 	margin: auto;
+	width: 80%;
 }
+
+#chatButton {
+	border-radius: 25px;
+	background-color: #ec4d38;
+	height: 40px;
+	width: 100px;
+}
+
 
 .chatDiv {
 	margin-top: 30px;
@@ -47,6 +56,7 @@ body {
 	font-family: 'Oswald', sans-serif;
 	box-shadow: 3px 3px 7px black;
 	margin-top: 25px;
+	margin-bottom: 25px;
 }
 
 .createH2 {
@@ -63,7 +73,6 @@ body {
 
 form {
 	padding: 3px;
-	width: 80%;
 }
 
 form button {
@@ -146,6 +155,10 @@ h5 {
 hr {
 	width: 50%;
 	margin: auto;
+}
+
+img {
+	width: 750px;
 }
 
 .indexDebate {
@@ -284,11 +297,6 @@ p {
 
 .taglineDiv {
 	padding: 30px;
+    text-align: center;
 }
 
-#chatButton {
-	border-radius: 25px;
-	background-color: #ec4d38;
-	height: 40px;
-	width: 100px;
-}

@@ -96,29 +96,36 @@ module.exports = {
 			id: id
 		}
 		}).then(function(result){
+				var winner = "";
+				var archived = false;
 				var updateDebate = {
 					votesA: result.votesA + sum,
 					totalVotes: result.totalVotes + 1
 				}
 				if (result.totalVotes + 1 >= result.maxVotes){
+					archived = true;
 					updateDebate.archived = true;
 				}
 
 				if (result.votesA > (result.maxVotes / 2)){
+					winner = result.sideA;
 					updateDebate.winner = result.sideA;
 				}
 
 				else {
+					winner = result.sideB;
 					updateDebate.winner = result.sideB;
 				}
 
-				callback({val: result.votesA + sum,
-					totalVotes: result.totalVotes +1}
-					);
 				db.Debate.update(updateDebate, {where: {
 					id: id
 				}
 				}).then(function(result1){
+					callback({val: result.votesA + sum,
+						totalVotes: result.totalVotes +1,
+						archived: archived,
+						winner: winner}
+					);
 				});
 			});
 	

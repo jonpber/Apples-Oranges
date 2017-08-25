@@ -6,7 +6,8 @@ module.exports = function(sequelize, Datatypes){
 		},
 		sideA: {
 			type: Datatypes.STRING,
-			defaultValue: ""
+			defaultValue: "",
+			allowNull: false,
 		},
 		votesA: {
 			type: Datatypes.INTEGER,
@@ -15,7 +16,8 @@ module.exports = function(sequelize, Datatypes){
 
 		sideB: {
 			type: Datatypes.STRING,
-			defaultValue: ""
+			defaultValue: "",
+			allowNull: false,
 		},
 		maxVotes: {
 			type: Datatypes.INTEGER,

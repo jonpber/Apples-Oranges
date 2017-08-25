@@ -11,9 +11,11 @@
 </nav>
 
 
-<h2>The Archive</h2>
+
 
 <div class="taglineDiv">
+	<img src="/assets/images/appor.png">
+	<h2>The Archive</h2>
 	<h3>Home of finished debates.</h3> 
 </div>
 
@@ -41,9 +43,9 @@
 <div id="modal" class="modal">
 	<h2 class="createH2">Create a Debate</h1>
 	<form action="/api/debates" method="POST" class="centerObj">
-			<input type="text" name="topic" placeholder="Ex. What is Better: Chinese Food vs Pizza"><br>
-			<input type="text" name="sideA" placeholder="Ex. Chinese Food"><br>
-			<input type="text" name="sideB" placeholder="Ex. Pizza"><br>
+			<input type="text" name="topic" class="validate" required="required" placeholder="Ex. What is Better: Chinese Food vs Pizza"><br>
+			<input type="text" name="sideA" class="validate" required="required" placeholder="Ex. Chinese Food"><br>
+			<input type="text" name="sideB" class="validate" required="required" placeholder="Ex. Pizza"><br>
 			<label>Max Number of Votes</label>
 			<p class="range-field">
 				<input type="range" name="maxVotes" id="test5" min="11" max="101" step="10" />

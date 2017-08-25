@@ -36,6 +36,12 @@ $(function () {
 	socket.on("response", function(debateBar){
 		$("#bar" + debateBar.id).attr("style", "width: " + debateBar.val + "%");
 		$("#totalVotes" + debateBar.id).text("Total Votes: " + debateBar.totalVotes);
+		console.log(debateBar.archived)
+		if (debateBar.archived){
+			setTimeout(function(){
+				$("#vote" + $(".pageInfo").attr("data-id")).html("<h2>" + debateBar.winner + " Wins!</h2>");
+			}, 500);
+		}
 	});
 
 	$(".modal").iziModal({

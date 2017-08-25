@@ -41,7 +41,11 @@ io.on('connection', function(socket){
 		changeVal(id.id, id.value, function(response){
 				io.emit("response", {id: id.id,
 					val: response.val,
-					totalVotes: response.totalVotes});
+					totalVotes: response.totalVotes,
+					archived: response.archived,
+					winner: response.winner
+					}
+					);
 		});
 	});
 
