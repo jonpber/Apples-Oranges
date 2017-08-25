@@ -10,7 +10,7 @@
 <nav class="debateNav">
 	<div class="nav-wrapper">
 		<!-- <h3 class="topic">Topic is:</h3> -->
-		<p class="debateTopic center"><span class="applesLogo">Apples</span> & <span class="orangesLogo">Oranges</span></p>
+		<a href="/"><p class="debateTopic center"><span class="applesLogo">Apples</span> & <span class="orangesLogo">Oranges</span></p></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="/">Home</a></li>
 			<li><a href="" class="createDebateNav">Create a Debate</a></li>
@@ -18,56 +18,69 @@
 	</div>
 </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="pageInfo" data-id="{{debate.id}}">
-    </div>
-    <br>
-    <br>
-    <div class="col s6 center">
-      <div class="chatDiv ">
-        <div id="messageDiv">
-          <ul id="messages{{debate.id}}"></ul>
-        </div>
-          <form id="debateChat" action="" data-id="{{debate.id}}">
-            <input id="m" autocomplete="off" class="chatInput" /><button>Send</button>
-          </form>
-      </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="pageInfo" data-id="{{debate.id}}">
+			</div>
 
-    <div class="col s12 center">
-      <h3>Votes</h3>
-    </div>
+			<h1>{{debate.debate_topic}}</h1>
 
-    <div class="col s12 center">
-      <div class="progress">
-        <div class="determinate" id="bar{{debate.id}}" style="width: {{debate.votesA}}%"></div>
-      </div>
-    </div>
 
-    <div class="col s12 center">
-      <div class="sides">
-        <p class="sideAText">{{debate.sideA}}</p>
-        <p class="sideBText">{{debate.sideB}}</p>
-      </div>
-    </div>
-    
-    <div class="col s12 center" id="vote{{debate.id}}">
-      <h3>Which is better??</h3>
-      <form action="/api/debates/{{debate.id}}/a?_method=PUT" method="POST">
-        <button type="submit" class="sideAText arenaVote" data-letter="a" data-id="{{debate.id}}">{{debate.sideA}}</button>
-      </form>
+			<br>
+			<div class="col s12 center">
+				<h3>Votes</h3>
+			</div>
 
-      <form action="/api/debates/{{debate.id}}/b?_method=PUT" method="POST">
-        <button type="submit" class="sideBText arenaVote" data-letter="b" data-id="{{debate.id}}">{{debate.sideB}}</button>
-      </form>
-        
-      
-    </div>
+			<div class="col s12 center">
+				<div class="progress">
+					<div class="determinate" id="bar{{debate.id}}" style="width: {{debate.votesA}}%"></div>
+				</div>
+			</div>
 
-    
-    </div> <!--row endtag-->
-    </div> <!--container endtag-->
+			<div class="col s12 center">
+				<div class="sides">
+					<p class="sideAText">{{debate.sideA}}</p>
+					<p class="sideBText">{{debate.sideB}}</p>
+				</div>
+			</div>
+
+			{{#unless debate.archived}}
+				<div class="col s12 center" id="vote{{debate.id}}">
+					<h3>Which is better??</h3>
+					<form action="/api/debates/{{debate.id}}/a?_method=PUT" method="POST">
+						<button type="submit" class="sideAText arenaVote" data-letter="a" data-id="{{debate.id}}">{{debate.sideA}}</button>
+					</form>
+
+					<form action="/api/debates/{{debate.id}}/b?_method=PUT" method="POST">
+						<button type="submit" class="sideBText arenaVote" data-letter="b" data-id="{{debate.id}}">{{debate.sideB}}</button>
+					</form>
+				</div>
+			{{/unless}}
+
+			{{#if debate.archived}}
+				<div class="col s12 center" id="vote{{debate.id}}">
+					<h3>{{debate.winner}} Wins!</h3>
+				</div>
+			{{/if}}
+			<br>
+			<br>
+			<br>
+
+			<div class="col s6 center">
+				<div class="chatDiv ">
+					<div id="messageDiv">
+						<ul id="messages{{debate.id}}"></ul>
+					</div>
+				</div>
+			</div>
+			<form id="debateChat" action="" data-id="{{debate.id}}">
+				<input id="m" autocomplete="off" class="chatInput" /><button>Send</button>
+			</form>
+		</div>
+	
+	</div>   
+   
+
 
     <div id="modal{{debate.id}}" class="modal">
 

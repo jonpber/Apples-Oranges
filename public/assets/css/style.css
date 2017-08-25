@@ -18,6 +18,25 @@ body {
 	margin: auto;
 }
 
+.chatDiv {
+	margin-top: 30px;
+}
+
+.chatInput {
+	width: 100%;
+}
+
+.chatMessage {
+	background: orange;
+	padding: 10px;
+	border-radius: 20px;
+	margin: 10px;
+}
+
+.chatMessage:nth-child(odd){
+	background: #ec4d38;
+}
+
 .createDebate {
 	background: white;
 	border: none;
@@ -82,13 +101,15 @@ li {
     display: inline;
 }
 
-.chatDiv {
-	/*margin-left: 400px;*/
+.debateSubmit {
+	background: #373737;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.47);
 }
 
-.chatInput {
-	width: 100%;
-}
 
 #debateChat {
 	width: 50%;*/
@@ -102,20 +123,23 @@ h1, h2, h3 {
 	color: white;
 }
 
-h2 {
+h1, h2, h3, h4 {
 	text-align: center;
 	font-family: 'Oswald', sans-serif;
 }
 
 h3 {
-	text-align: center;
 	font-size: 25px;
-	font-family: 'Oswald', sans-serif;
 }
 
 h4 {
 	text-align: center;
 	font-family: 'Oswald', sans-serif;
+}
+
+h5 {
+	font-size: 18px;
+    text-align: center;
 }
 
 hr {
@@ -156,6 +180,8 @@ input[type=range]+.thumb .value {
 	border-radius: 20px;
 	padding: 10px;
 	box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+	overflow: auto;
 }
 
 #messages {
@@ -174,6 +200,11 @@ input[type=range]+.thumb .value {
 #messages li:nth-child(odd) {
 	background: green;
 	border-radius: 10px;
+}
+
+nav ul a {
+	font-family: 'Oswald', sans-serif;
+	font-size: 22px;
 }
 
 .orangesLogo {

@@ -1,10 +1,10 @@
 <nav class="debateNav">
 	<div class="nav-wrapper">
 		<!-- <h3 class="topic">Topic is:</h3> -->
-		<p class="debateTopic center"><span class="applesLogo">Apples</span> & <span class="orangesLogo">Oranges</span></p>
+		<a href="/"><p class="debateTopic center"><span class="applesLogo">Apples</span> & <span class="orangesLogo">Oranges</span></p></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="/">Home</a></li>
-			<li><a href="" class="createDebateNav">Create a Debate</a></li>
+			<li class="grow"><a href="/">Home</a></li>
+			<li class="grow"><a href="" class="createDebateNav">Create a Debate</a></li>
 		</ul>
 	</div>
 </nav>
@@ -21,7 +21,11 @@
 
 {{#each debates}}
 	<div class="indexDebate grow">
-		<a href="/db8/{{this.id}}"><h4>{{this.debate_topic}}</h4></a>
+		<a href="/db8/{{this.id}}">
+			<h4>{{this.debate_topic}}</h4>
+			<h5 id="totalVotes{{this.id}}">Total Votes: {{this.totalVotes}}<h5>
+		</a>
+
 	</div>
 		
 {{/each}}
@@ -47,6 +51,6 @@
 			<p class="range-field">
 				<input type="range" name="maxVotes" id="test5" min="11" max="101" step="10" />
 			</p>
-			<input type="submit" name="submit">
+			<input type="submit" name="submit" class="debateSubmit">
 	</form>
 </div>

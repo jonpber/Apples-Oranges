@@ -1,6 +1,7 @@
 $(function () {
 	var socket = io();
 	var voted;
+	var color = 0;
 	if (localStorage.getItem("votes")){
 		voted = JSON.parse(localStorage.getItem("votes"));
 	}
@@ -28,11 +29,13 @@ $(function () {
 	});
 
 	socket.on('chat message', function(msg){
-		$('#messages' + msg.id).append($('<li>').text(msg.message));
+		$('#messages' + msg.id).append($('<li class="chatMessage">').text(msg.message));
+		$('#messages' + msg.id).animate({ scrollTop: $('#messages' + msg.id)[0].scrollHeight}, 1000);
 	});
 
 	socket.on("response", function(debateBar){
 		$("#bar" + debateBar.id).attr("style", "width: " + debateBar.val + "%");
+		$("#totalVotes" + debateBar.id).text("Total Votes: " + debateBar.totalVotes);
 	});
 
 	$(".modal").iziModal({
