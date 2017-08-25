@@ -9,7 +9,8 @@ a {
 }
 
 body {
-	background: #212121;
+/*	background: url("../images/footer_lodyas.png");*/
+	background: url("../images/zzw1.png");
 	font: 13px Helvetica, Arial;
 }
 
@@ -24,8 +25,10 @@ body {
 	background-color: #ec4d38;
 	height: 40px;
 	width: 100px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 21px;
+	padding: 0;
 }
-
 
 .chatDiv {
 	margin-top: 30px;
@@ -182,11 +185,21 @@ input[type=range]+.thumb .value {
 	color: #F44336;
 }
 
+input[type=range]::-webkit-slider-thumb {
+	background-color: #F44336;
+}
+input[type=range]::-moz-range-thumb {
+	background-color: #F44336;
+}
+input[type=range]::-ms-thumb {
+	background-color: #F44336;
+}
 
 #m {
- height: 30px;
- border-radius: 15px;
- margin-top: 10px;
+	height: 30px;
+	border-radius: 15px;
+	margin-top: 10px;
+	padding: 0 15px;
 }
 
 #messageDiv {
