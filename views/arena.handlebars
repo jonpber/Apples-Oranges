@@ -66,20 +66,21 @@
 			<br>
 			<br>
 
-			<div class="col s6 center">
-				<div class="chatDiv ">
+			<div class="col s6 offset-s3">
+				<div class="chatDiv">
 					<div id="messageDiv">
 						<ul id="messages{{debate.id}}"></ul>
 					</div>
 				</div>
-			</div>
+
 			<form id="debateChat" action="" data-id="{{debate.id}}">
-				<input id="m" autocomplete="off" class="chatInput" /><button>Send</button>
+				<input id="m" autocomplete="off" class="chatInput" /><button class="grow" id="chatButton" >Send</button>
 			</form>
+      </div>
 		</div>
-	
-	</div>   
-   
+
+	</div>
+
 
 
     <div id="modal{{debate.id}}" class="modal">
