@@ -1,4 +1,4 @@
-[AA01](https://i.imgur.com/2TvZ6eu.gif)
+![AA01](https://i.imgur.com/2TvZ6eu.gif)
 
 # Apples & Oranges
 Please visit the [Project Repo](https://github.com/Db8-App/db8) for the full project. 
@@ -19,7 +19,7 @@ Users can create a debate at any time by setting up the parameters for the debat
 - Max Number of votes (This is always an odd number to determine when the debate ends and which side won).
 Once the max number of votes is achieved, the debate is archived and voting is closed.
 
-[AAO2](https://i.imgur.com/qV1gsjE.gif)
+![AAO2](https://i.imgur.com/qV1gsjE.gif)
 
 # Vote and Chat
 
