@@ -1,2 +1,2 @@
-# db8
-A handy app to settle your differences on the net.
+# Apples & Oranges
+Please visit the [Project Repo](https://github.com/Db8-App/db8) for the full project. 
